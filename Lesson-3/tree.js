@@ -17,13 +17,9 @@ const products1 = [
     },
 ];
 
-let j = 0;
-
-
-let newProduct = products1.forEach(function(element){
-    let newPrice = products1[j].price - (products1[j].price * 0.15);
-    let saleProduct = Object.assign({},element,{salePrice: newPrice});
+let newProduct = products1.forEach(function(product){
+    let newPrice = product.price - product.price * 0.15;
+    let saleProduct = Object.assign({},product,{salePrice: newPrice});
     console.log(saleProduct);
-    j++    
 })
 
