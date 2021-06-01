@@ -1,19 +1,11 @@
-function pushParamA(){
-    return num1 = +prompt("Введите число 1 :");
-}
-function pushParamB(){
-    return num2 = +prompt("Введите число 2 :");
-}
-function pushParamC(){
-    return mat = prompt("Введите одну из математических операций * / + - ");
-}
+ 'use strict'
 
 function sum(a,b){
     let c = a + b;
     return c ;
 }
 
-function min(a,b){
+function min(a,b,c){
     let c = a - b;
     return c ;
 }
@@ -28,10 +20,17 @@ function del(a,b){
     return c ;
 }
 
-let a = pushParamA();
-let b = pushParamB();
-let c = pushParamC();
+let a = +prompt("Введите число 1 :");
+let b = +prompt("Введите число 2 :");
+let c = prompt("Введите одну из математических операций * / + - ");
 
+/**
+ * Функция принимает параметры чисел arg1, arg2 и в зависимости от operation вызывает соответствующую функцию.
+ * @param {number} arg1  принимает число из меременной "a".
+ * @param {number} arg2  принимает число из меременной "b".
+ * @param {string} operation  принимает строку с символом математического оператора из меременной "с".
+ * @returns {number} возвращает число ,результат вычисления одной из вызываемых функций.
+ */
 
 function mathOperation(arg1, arg2, operation){
     switch(operation){
@@ -44,14 +43,11 @@ function mathOperation(arg1, arg2, operation){
         case "-":
             return min(arg1,arg2)
         default:
-
             alert(" Введите верный математический оператор !");
-            operation = pushParamC();    
-            alert(" Результат вычисления : " + mathOperation(arg1, arg2, operation));         
-          
+            operation = prompt("Введите одну из математических операций * / + - ");    
+            return mathOperation(arg1, arg2, operation);    
     }
 }
 
-if((mathOperation(a, b, c)) !== undefined  ){
-    alert (" Результат вычисления : " + mathOperation(a, b, c));
-}
+let mathResult = mathOperation(a, b, c);
+if(mathResult !== undefined  ){alert (" Результат вычисления : " + mathResult);}
